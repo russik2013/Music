@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('artist');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('year_of_release')->nullable();
             $table->string('tracklist')->nullable();
             $table->string('description')->nullable();
@@ -27,6 +27,8 @@ class CreateAlbumsTable extends Migration
             $table->string('total_time')->nullable();
             $table->string('total_size')->nullable();
             $table->string('download_link')->nullable();
+            $table->boolean('show_in_slider')->default(false);
+            $table->string('big_image')->nullable();
             $table->timestamps();
         });
     }

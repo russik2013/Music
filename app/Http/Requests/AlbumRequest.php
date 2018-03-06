@@ -36,7 +36,9 @@ class AlbumRequest extends FormRequest
             'total_time' => 'sometimes|string|min:3',
             'total_size' => 'sometimes|string|min:3',
             'download_link' => 'sometimes|url',
-            'category' => 'sometimes|validCategories'
+            'category' => 'sometimes|validCategories',
+            'show_in_slider' => 'required|boolean',
+            'big_image' => 'sometimes|image'
         ];
     }
 

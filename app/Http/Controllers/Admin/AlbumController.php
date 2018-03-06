@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Album;
 use App\Category;
 use App\Http\Requests\AlbumRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,25 @@ class AlbumController extends Controller
 
         $album -> fill($request -> all());
 
-        $album -> image = 'image';
+        if($request -> image){
+
+            $time = Carbon::now();
+
+            $request->image->move('/images/albums', "album_image_" . $time . '.png');
+
+            $album -> image = "images/albums/album_image_" . $time . '.png';
+
+        }
+
+        if($request -> big_image){
+
+            $time = Carbon::now();
+
+            $request->image->move('/images/albums', "album_big_" . $time . '.png');
+
+            $album -> big_image = "images/albums/album_big_" . $time . '.png';
+
+        }
 
         if($album -> save())
 
@@ -33,6 +52,30 @@ class AlbumController extends Controller
         if($album){
 
             $album -> fill($request -> all());
+
+            if($request -> image){
+
+                $time = Carbon::now();
+
+                if(file_exists($album -> image))
+
+                $request->image->move('/images/albums', "album_image_" . $time . '.png');
+
+                $album -> image = "images/albums/album_image_" . $time . '.png';
+
+            }
+
+            if($request -> big_image){
+
+                $time = Carbon::now();
+
+                if(file_exists($album -> big_image))
+
+                $request->big_image->move('/images/albums', "album_big_" . $time . '.png');
+
+                $album -> big_image = "images/albums/album_big_" . $time . '.png';
+
+            }
 
             $album -> save();
 

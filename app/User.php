@@ -24,26 +24,63 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'created_at', 'updated_at'
+        'password', 'remember_token', 'created_at', 'updated_at', 'permissions'
     ];
 
     public function handleAdmin(){
 
-        if($this-> handle_admin == 0)
+        if($this ->permissions() -> where('permission_id', 1) -> first())
 
-            return false;
+            return true;
 
-        return true;
+        return false;
+
+    }
+
+    public function permissions(){
+
+        return $this->hasMany('App\UserPermission', 'user_id', 'id');
 
     }
 
     public function handleAlbum(){
 
-        if($this-> handle_album == 0)
+        if($this ->permissions() -> where('permission_id', 2) -> first())
 
-            return false;
+            return true;
 
-        return true;
+        return false;
+
 
     }
+
+
+//    public function authorizeRoles($roles)
+//    {
+//        if (is_array($roles)) {
+//            return $this->hasAnyRole($roles) ||
+//                abort(401, 'This action is unauthorized.');
+//        }
+//        return $this->hasRole($roles) ||
+//            abort(401, 'This action is unauthorized.');
+//    }
+//    /**
+//     * Check multiple roles
+//     * @param array $roles
+//     */
+//    public function hasAnyRole($roles)
+//    {
+//        return null !== $this->roles()->whereIn(‘name’, $roles)->first();
+//        }
+//    /**
+//     * Check one role
+//     * @param string $role
+//     */
+//    public function hasRole($role)
+//    {
+//        return null !== $this->roles()->where(‘name’, $role)->first();
+//    }
+
+
+
 }
