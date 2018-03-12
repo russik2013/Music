@@ -9,14 +9,24 @@ class HomeController extends Controller
 {
     public function auth(Request $request){
 
-        $user = User::where('login', $request -> login) -> where('password', md5($request -> password)) -> first();
+        $user = User::where('login', $request -> login) -> where('password', md5($request -> password)) -> with('permissions.permissionInfo') -> first();
 
         if($user){
+
+                $userPermission = [];
+
+                foreach ($user->permissions as $permission){
+
+                    $userPermission[] = $permission->permissionInfo-> toArray();
+
+                }
+                $user -> permission = $userPermission;
+
+
             return response()->json(['status' => 'success','message' => "", 'body' => [
                 'name' => $user -> name,
                 'token' => $user ->remember_token,
-                'handle_admin' => $user -> handle_admin,
-                'handle_album' => $user -> handle_album
+                'permission' => $user -> permission
                 ]
             ], 200);
 
