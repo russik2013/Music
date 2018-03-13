@@ -95,7 +95,7 @@ class AdminController extends Controller
 
             foreach ($permissions as $permission) {
 
-                UserPermission::created(['user_id' => $userId, 'permission_id' => $permission]);
+                UserPermission::insert(['user_id' => $userId, 'permission_id' => $permission]);
 
             }
         }

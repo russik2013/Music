@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/test', 'TestController@index');
+
+Route::get('finderName', 'Publics\AlbumController@finderName');
+Route::get('finderName/{id}', 'Publics\AlbumController@finderName');

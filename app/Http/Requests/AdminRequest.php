@@ -26,9 +26,7 @@ class AdminRequest extends FormRequest
         return [
             'name' => 'required|string|min:3',
             'login' => 'required|string|min:3',
-            'password' => 'sometimes|string|min:3',
-            'handle_album' => 'required|boolean',
-            'handle_admin' => 'required|boolean'
+            'password' => 'sometimes|string|min:3'
         ];
     }
 
