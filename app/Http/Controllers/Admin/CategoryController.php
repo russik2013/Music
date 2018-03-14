@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
         for ($i = 1; $i <= $category_max_lvl ; $i++){
 
-            $levels[] = str_repeat("daughter.", $i);
+            $levels[] = str_repeat("child.", $i);
 
         }
 
@@ -82,6 +82,12 @@ class CategoryController extends Controller
         $categories = Category::with($levels) -> where('father_id','=',null)->get();
 
         return response()->json(['status' => 'success','message' => "", 'body' => $categories], 200);
+
+    }
+
+    public function index(){
+
+
 
     }
 }

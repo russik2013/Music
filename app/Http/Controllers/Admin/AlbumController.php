@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Album;
 use App\Category;
+use App\CategoryAlbum;
 use App\Http\Requests\AlbumRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class AlbumController extends Controller
 
             $time = Carbon::now();
 
-            $request->image->move('/images/albums', "album_image_" . $time . '.png');
+            $request->image->move('images/albums', "album_image_" . $time . '.png');
 
             $album -> image = "images/albums/album_image_" . $time . '.png';
 
@@ -31,17 +32,36 @@ class AlbumController extends Controller
 
             $time = Carbon::now();
 
-            $request->image->move('/images/albums', "album_big_" . $time . '.png');
+            $request->big_image->move('images/albums', "album_big_" . $time . '.png');
 
             $album -> big_image = "images/albums/album_big_" . $time . '.png';
 
         }
 
-        if($album -> save())
+        if($album -> save()) {
 
-            return response()->json(['status' => 'success','message' => "", 'body' => null], 200);
+            $this->addCategory($request->category, $album->id);
+
+            return response()->json(['status' => 'success', 'message' => "", 'body' => null], 200);
+        }
 
         else return response()->json(['status' => 'server error','message' => "Fuck the laravel", 'body' => null], 404);
+
+    }
+
+    public function addCategory($categories, $AlbumId){
+
+        CategoryAlbum::where('album_id', $AlbumId) -> delete();
+
+        $insertArray = [];
+
+        foreach ($categories as $category){
+
+            $insertArray[] = ['album_id' => $AlbumId, 'category_id' => $category];
+
+        }
+
+        CategoryAlbum::insert($insertArray);
 
     }
 
@@ -59,7 +79,7 @@ class AlbumController extends Controller
 
                 if(file_exists($album -> image))
 
-                $request->image->move('/images/albums', "album_image_" . $time . '.png');
+                $request->image->move('images/albums', "album_image_" . $time . '.png');
 
                 $album -> image = "images/albums/album_image_" . $time . '.png';
 
@@ -71,13 +91,16 @@ class AlbumController extends Controller
 
                 if(file_exists($album -> big_image))
 
-                $request->big_image->move('/images/albums', "album_big_" . $time . '.png');
+                $request->big_image->move('images/albums', "album_big_" . $time . '.png');
 
                 $album -> big_image = "images/albums/album_big_" . $time . '.png';
 
             }
 
             $album -> save();
+
+            if($request->category)
+            $this->addCategory($request->category, $album->id);
 
             return response()->json(['status' => 'success','message' => "", 'body' => null], 200);
 

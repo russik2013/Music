@@ -10,7 +10,7 @@ class Category extends Model
 
     protected $hidden = ["created_at", "updated_at", "father_id"];
 
-    public function daughter (){
+    public function child (){
 
         return $this -> hasMany($this,'father_id', 'id');
 

@@ -35,12 +35,13 @@ Route::group(['middleware' => 'user'], function () {
          Route::post('store', 'Admin\AlbumController@store');
          Route::post('update', 'Admin\AlbumController@update');
          Route::post('list', 'Admin\AlbumController@show');
-         Route::post('сategory', 'Admin\CategoryController@show');
+         Route::post('category', 'Admin\CategoryController@show');
 
     });
 
     Route::group(['middleware' => 'album', 'prefix' => 'category'], function () {
 
+        Route::post('/', 'Admin\CategoryController@show');
         Route::post('store', 'Admin\CategoryController@store');
         Route::post('update', 'Admin\CategoryController@update');
         Route::post('delete', 'Admin\CategoryController@delete');
