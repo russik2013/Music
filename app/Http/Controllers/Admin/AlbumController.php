@@ -123,9 +123,27 @@ class AlbumController extends Controller
     }
 
     public function show(){
-        if(Album::all())
 
-            return response()->json(['status' => 'success','message' => "", 'body' =>Album::with('category') -> get()], 200);
+        if(Album::all()){
+
+            $albums = Album::with('categories.categoryName') -> get();
+
+            foreach ($albums as $album){
+
+                $catArray = [];
+
+                foreach ($album->categories as $item){
+
+                    $catArray[] = ['id' => $item ->categoryName-> id, 'name' => $item ->categoryName-> name];
+
+                }
+                $album -> category = $catArray;
+
+            }
+
+            return response()->json(['status' => 'success','message' => "", 'body' =>$album], 200);
+
+        }
 
         else return response()->json(['status' => 'server error','message' => "Not find user table or model and Fuck the laravel", 'body' => null], 404);
 

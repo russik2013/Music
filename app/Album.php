@@ -11,8 +11,9 @@ class Album extends Model
         'total_size','download_link','show_in_slider','big_image'
     ];
 
+    protected $hidden = ['categories'];
 
-    public function category(){
+    public function categories(){
 
         return $this->hasMany('App\CategoryAlbum','album_id', 'id');
 
