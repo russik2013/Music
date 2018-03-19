@@ -23,21 +23,15 @@ Route::get('finderName/{id}', 'Publics\AlbumController@finderName');
 Route::get('curl_test', 'ParserController@index');
 
 
-Route::get('contact', function (){
+Route::get('contact', 'Publics\ContactController@index');
+
+Route::get('index', 'Publics\HomeController@index');
 
 
-    return view('contact');
-});
-Route::get('index', function (){
+Route::get('music/{id}', 'Publics\AlbumController@one');
 
 
-    return view('index');
-});
-Route::get('music', function (){
 
-
-    return view('music');
-});
 Route::get('one', function (){
 
 

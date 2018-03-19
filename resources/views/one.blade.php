@@ -151,210 +151,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pr0">
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 pr0 sidebar_wrapper">
                 <div class="sidebar matchHeight">
-                    <h6 class="title">Music Genres</h6>
+                    <h6 class="title">
+                        Music Genres
+                        <a href="#" class="close_sidebar"></a>
+                    </h6>
                     <div class="sidebar_menu">
-                        <ul>
-                            <li>
-                                <a href="#">Blues</a>
-                            </li>
-                            <li>
-                                <a href="#">Classical Music</a>
-                            </li>
-                            <li>
-                                <a href="#">Country</a>
-                            </li>
-                            <li class="has_submenu">
-                                <a href="#">
-                                    Electronic
-                                    <button class="sub_menu_activator"></button>
-                                </a>
-                                <ul class="sub_menu">
-                                    <li>
-                                        <a href="#">Ambient</a>
-                                    </li>
-                                    <li class="has_submenu">
-                                        <a href="#">Dance
-                                            <button class="sub_menu_activator"></button>
-                                        </a>
-                                        <ul class="sub_menu">
-                                            <li>
-                                                <a href="#">Eurodance</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Disco</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has_submenu">
-                                        <a href="#">Downtempo
-                                            <button class="sub_menu_activator"></button>
-                                        </a>
-                                        <ul class="sub_menu">
-                                            <li>
-                                                <a href="#">Lounge</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Lo-Fi</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Trip-Hop</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Hardcore</a>
-                                    </li>
-                                    <li class="has_submenu">
-                                        <a href="#">House
-                                            <button class="sub_menu_activator"></button>
-                                        </a>
-                                        <ul class="sub_menu">
-                                            <li>
-                                                <a href="#">Deep House</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Minimal House</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">New Age</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Techno</a>
-                                    </li>
-                                    <li class="has_submenu">
-                                        <a href="#">Trance
-                                            <button class="sub_menu_activator"></button>
-                                        </a>
-                                        <ul class="sub_menu">
-                                            <li>
-                                                <a href="#">Psychedelic</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Progressive</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="has_submenu">
-                                        <a href="#">Garage
-                                            <button class="sub_menu_activator"></button>
-                                        </a>
-                                        <ul class="sub_menu">
-                                            <li>
-                                                <a href="#">Dubstep/Grime</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">UK Funky/2 Step</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Breakbeat</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Funk</a>
-                            </li>
-                            <li>
-                                <a href="#">Hip-Hop</a>
-                            </li>
-                            <li class="has_submenu">
-                                <a href="#">Jazz
-                                    <button class="sub_menu_activator"></button>
-                                </a>
-                                <ul class="sub_menu">
-                                    <li>
-                                        <a href="#">Nu Jazz</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Smooth Jazz</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bossa Nova</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Vocal Jazz</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Instrumental</a>
-                            </li>
-                            <li>
-                                <a href="#">Pop</a>
-                            </li>
-                            <li>
-                                <a href="#">R&B</a>
-                            </li>
-                            <li>
-                                <a href="#">Reggae</a>
-                            </li>
-                            <li class="has_submenu">
-                                <a href="#">Rock
-                                    <button class="sub_menu_activator"></button>
-                                </a>
-                                <ul class="sub_menu">
-                                    <li>
-                                        <a href="#">Alternative</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Indie</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Metal</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Punk</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Soul</a>
-                            </li>
-                            <li>
-                                <a href="#">Soundtrack</a>
-                            </li>
-                            <li class="has_submenu">
-                                <a href="#">World
-                                    <button class="sub_menu_activator"></button>
-                                </a>
-                                <ul class="sub_menu">
-                                    <li>
-                                        <a href="#">German</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Latin</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Celtic</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Ethnic</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Japanese</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">French</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Folk</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Oldies</a>
-                            </li>
-                            <li>
-                                <a href="#">Easy Listening</a>
-                            </li>
-                            <li><a href="#">XMAS abd Holiday</a>
-                            </li>
-                        </ul>
+                        @include('category_filter')
+
                     </div>
                     <div class="calendar">
                         <div class="title">
@@ -375,6 +181,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

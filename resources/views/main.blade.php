@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>MiCore Development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link href="{{url('css/app-ac34d3ec53.css')}}" rel="stylesheet">
-    <link href="{{url('css/vendor-e604b36469.css')}}" rel="stylesheet">
+    <link href="{{url('css/app-ac34d3ec53(test).css')}}" rel="stylesheet">
+    <link href="{{url('css/vendor-e604b36469(test).css')}}" rel="stylesheet">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -62,7 +63,7 @@
                         <li><a href="#">FLAC & APE</a></li>
                         <li><a href="#">ITUNES</a></li>
                         <li><a href="#">DISCOGRAPHY</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="{{url('contact')}}">CONTACT</a></li>
                     </ul>
                 </div>
             </div>
