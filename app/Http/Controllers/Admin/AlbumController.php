@@ -134,14 +134,14 @@ class AlbumController extends Controller
 
                 foreach ($album->categories as $item){
 
-                    $catArray[] = ['id' => $item ->categoryName-> id, 'name' => $item ->categoryName-> name];
+                    $catArray[] = ['id' => $item ->categoryName-> id, 'name' => $item ->categoryName-> name, 'level' => $item ->categoryName->level];
 
                 }
                 $album -> category = $catArray;
 
             }
 
-            return response()->json(['status' => 'success','message' => "", 'body' =>$album], 200);
+            return response()->json(['status' => 'success','message' => "", 'body' =>$albums], 200);
 
         }
 

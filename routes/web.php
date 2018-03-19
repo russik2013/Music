@@ -28,4 +28,36 @@ Route::get('contact', function (){
 
     return view('contact');
 });
+Route::get('index', function (){
+
+
+    return view('index');
+});
+Route::get('music', function (){
+
+
+    return view('music');
+});
+Route::get('one', function (){
+
+
+    return view('one');
+});
+
+
+
+
+Route::get('finder', 'Publics\OperationController@finder');
+
+
+
+
+//Route::get('result', function (){
+//
+//
+//    return view('result');
+//}) -> name('finder');
+
+
+Route::get('result/{name?}', 'Publics\OperationController@result') -> name('result');
 
