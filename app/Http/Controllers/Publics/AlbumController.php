@@ -8,13 +8,18 @@ use App\Http\Controllers\Controller;
 
 class AlbumController extends Controller
 {
-    public function one($id){
+    public function one($id)
+    {
 
-        $album = Album::find($id);
+        $album = Album::with('categories.categoryName') -> find($id);
 
-        if($album)
+        if ($album) {
 
-            return view('music', compact('album'));
+
+        return view('music', compact('album'));
+
+
+        }
 
         else{
 

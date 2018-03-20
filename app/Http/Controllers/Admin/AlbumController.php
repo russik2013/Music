@@ -6,6 +6,7 @@ use App\Album;
 use App\Category;
 use App\CategoryAlbum;
 use App\Http\Requests\AlbumRequest;
+use App\TypeAlbum;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,10 +43,28 @@ class AlbumController extends Controller
 
             $this->addCategory($request->category, $album->id);
 
+            $this->addTypes($request->type, $album->id);
+
             return response()->json(['status' => 'success', 'message' => "", 'body' => null], 200);
         }
 
         else return response()->json(['status' => 'server error','message' => "Fuck the laravel", 'body' => null], 404);
+
+    }
+
+    public function addTypes($types, $AlbumId){
+
+        TypeAlbum::where('album_id', $AlbumId) -> delete();
+
+        $insertArray = [];
+
+        foreach ($types as $type){
+
+            $insertArray[] = ['album_id' => $AlbumId, 'category_id' => $type];
+
+        }
+
+        TypeAlbum::insert($insertArray);
 
     }
 
@@ -101,6 +120,9 @@ class AlbumController extends Controller
 
             if($request->category)
             $this->addCategory($request->category, $album->id);
+
+            if($request->type)
+            $this->addTypes($request->type, $album->id);
 
             return response()->json(['status' => 'success','message' => "", 'body' => null], 200);
 

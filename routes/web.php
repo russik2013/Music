@@ -30,7 +30,7 @@ Route::get('index', 'Publics\HomeController@index');
 
 Route::get('music/{id}', 'Publics\AlbumController@one');
 
-
+Route::get('category/{id}', 'Publics\CategoryController@show');
 
 Route::get('one', function (){
 
@@ -41,9 +41,9 @@ Route::get('one', function (){
 
 
 
-Route::get('finder', 'Publics\OperationController@finder');
+//Route::get('finder', 'Publics\OperationController@finder'); if you want activate cool finder
 
-
+Route::get('finder/{name?}', 'Publics\OperationController@finder');
 
 
 //Route::get('result', function (){
