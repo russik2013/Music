@@ -55,3 +55,5 @@ Route::get('finder/{name?}', 'Publics\OperationController@finder');
 
 Route::get('result/{name?}', 'Publics\OperationController@result') -> name('result');
 
+
+Route::get('htmlParse', 'TestController@testHtmlParse');

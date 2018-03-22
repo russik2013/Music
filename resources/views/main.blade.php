@@ -53,20 +53,10 @@
                 </button>
                 <a href="#" class="mobile_search_toggle"></a>
             </div>
-            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">ALBUMS 2018</a></li>
-                        <li><a href="#">MP3</a></li>
-                        <li><a href="#">CD RIP</a></li>
-                        <li><a href="#">HD & VINYL</a></li>
-                        <li><a href="#">FLAC & APE</a></li>
-                        <li><a href="#">ITUNES</a></li>
-                        <li><a href="#">DISCOGRAPHY</a></li>
-                        <li><a href="{{url('contact')}}">CONTACT</a></li>
-                    </ul>
-                </div>
-            </div>
+
+
+            @include('header_menu')
+
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                 <div class="search_wrapper">
                     <input type="text" placeholder="Search...">

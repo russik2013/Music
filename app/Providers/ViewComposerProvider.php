@@ -14,6 +14,7 @@ class ViewComposerProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('category_filter', 'App\Http\Controllers\Publics\CategoryController@categoryFilter');
+        view()->composer('header_menu', 'App\Http\Controllers\Publics\OperationController@headerMenu');
     }
 
     /**

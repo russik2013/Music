@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Publics;
 use App\Album;
 use App\Category;
 use App\CategoryAlbum;
+use App\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -19,6 +20,15 @@ class OperationController extends Controller
         $albums = Album:: where('title', $name) -> orWhere('artist', $name) -> paginate(16);
 
         return view('result', compact('albums', 'name', 'albumsArray'));
+
+    }
+
+    public function headerMenu($view){
+
+        $types = Type::all();
+
+
+        $view->with('types', $types);
 
     }
 /////////////////////////////////// Этот пиздец что то ищет
