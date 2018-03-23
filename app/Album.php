@@ -11,11 +11,17 @@ class Album extends Model
         'total_size','download_link','show_in_slider','big_image'
     ];
 
-    protected $hidden = ['categories'];
+    protected $hidden = ['categories', 'types'];
 
     public function categories(){
 
         return $this->hasMany('App\CategoryAlbum','album_id', 'id');
+
+    }
+
+    public function types(){
+
+        return $this->hasMany('App\TypeAlbum','album_id', 'id');
 
     }
 

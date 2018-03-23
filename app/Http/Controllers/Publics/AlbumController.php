@@ -11,12 +11,12 @@ class AlbumController extends Controller
     public function one($id)
     {
 
-        $album = Album::with('categories.categoryName') -> find($id);
+        $album = Album::with('categories.categoryName', 'types.typeName') -> find($id);
 
         if ($album) {
 
 
-        return view('music', compact('album'));
+            return view('music', compact('album'));
 
 
         }

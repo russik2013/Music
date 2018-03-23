@@ -41,7 +41,7 @@ class AlbumController extends Controller
 
         if($album -> save()) {
 
-            $this->addCategory($request->category, $album->id);
+            $this->addCategory($request->genre, $album->id);
 
             $this->addTypes($request->type, $album->id);
 
@@ -118,8 +118,8 @@ class AlbumController extends Controller
 
             $album -> save();
 
-            if($request->category)
-            $this->addCategory($request->category, $album->id);
+            if($request->genre)
+            $this->addCategory($request->genre, $album->id);
 
             if($request->type)
             $this->addTypes($request->type, $album->id);
@@ -148,18 +148,28 @@ class AlbumController extends Controller
 
         if(Album::all()){
 
-            $albums = Album::with('categories.categoryName') -> get();
+            $albums = Album::with('categories.categoryName', 'types.typeName') -> get();
 
             foreach ($albums as $album){
 
                 $catArray = [];
+                $typeArray = [];
 
                 foreach ($album->categories as $item){
 
                     $catArray[] = ['id' => $item ->categoryName-> id, 'name' => $item ->categoryName-> name, 'level' => $item ->categoryName->level];
 
                 }
-                $album -> category = $catArray;
+                $album -> genre = $catArray;
+
+
+                foreach ($album->types as $value){
+
+                    $typeArray = ['name' => $value -> typeName -> name];
+
+                }
+
+                $album -> type = $typeArray;
 
             }
 
