@@ -165,7 +165,7 @@ class AlbumController extends Controller
 
                 foreach ($album->types as $value){
 
-                    $typeArray = ['name' => $value -> typeName -> name];
+                    $typeArray[] = ['id' =>  $value -> typeName -> id, 'name' => $value -> typeName -> name];
 
                 }
 

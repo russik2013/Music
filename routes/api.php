@@ -36,6 +36,7 @@ Route::group(['middleware' => 'user'], function () {
          Route::post('update', 'Admin\AlbumController@update');
          Route::post('list', 'Admin\AlbumController@show');
          Route::post('category', 'Admin\CategoryController@show');
+         Route::post('type', 'Admin\TypeController@index');
 
     });
 

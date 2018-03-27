@@ -83,13 +83,15 @@ class TestController extends Controller
 
         $path = 'https://www.israbox.live'.$imageURL;
 
+        //dd($imageURL);
+
         $filename = basename($path);
 
-        $image = file_get_contents($path);
+        $image = file_get_contents($imageURL);
 
         $imageName = Carbon::now();
 
-        file_put_contents('images/' .$imageName.'.jpg', $image);
+        file_put_contents('images/albums/album_image_' .$imageName.'.jpg', $image);
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -155,7 +157,7 @@ class TestController extends Controller
 
           'title' => $title,
           'artist' => $author,
-          'image' => $imageName,
+          'image' => 'images/albums/album_image_' .$imageName.'.jpg',
           'year_of_release' => $yearOfRelease,
           'tracklist' => $trackListToDataBase,
           'description' => $descriptionParseToDataBase,
