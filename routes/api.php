@@ -37,6 +37,7 @@ Route::group(['middleware' => 'user'], function () {
          Route::post('list', 'Admin\AlbumController@show');
          Route::post('category', 'Admin\CategoryController@show');
          Route::post('type', 'Admin\TypeController@index');
+         Route::post('delete', 'Admin\AlbumController@delete');
 
     });
 

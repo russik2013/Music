@@ -16,7 +16,9 @@ class HomeController extends Controller
 
         $albums = Album::orderBy('id', 'desc') ->paginate(16);
 
-        return view('index', compact('musics','albumsArray', 'albums'));
+        $sliders = Album::orderBy('id', 'desc') ->take(3) -> get();
+
+        return view('index', compact('musics','albumsArray', 'albums', 'sliders'));
        // return view('index');
 
     }

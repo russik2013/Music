@@ -26,32 +26,37 @@
                                     </div>
                                 </div>
 
+                                {{--{{dd($error)}}--}}
 
-                                @for($i = 0; $i < count($albumsArray['data']); $i ++)
+                                @if(!isset($error))
+                                    @for($i = 0; $i < count($albumsArray['data']); $i ++)
 
-                                    @if($i % 4 == 0)
-                                        <div class="row">
-                                        @endif
+                                        @if($i % 4 == 0)
+                                            <div class="row">
+                                            @endif
 
 
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <div class="album_wrapper">
-                                            <a href="#"><img src="app/img/logo-album-1.png"></a>
-                                            <h2 class="album_title"> {{$albumsArray['data'][$i]['title']}}</h2>
-                                            <h3 class="description">{{$albumsArray['data'][$i]['artist']}}</h3>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <div class="album_wrapper">
+                                                <a href="#"><img src="app/img/logo-album-1.png"></a>
+                                                <h2 class="album_title"> {{$albumsArray['data'][$i]['title']}}</h2>
+                                                <h3 class="description">{{$albumsArray['data'][$i]['artist']}}</h3>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    @if(($i + 1) % 4 == 0 || ($i + 1) == count($albumsArray['data']))
-                                        </div>
-                                        @endif
-
-
-                                @endfor
+                                        @if(($i + 1) % 4 == 0 || ($i + 1) == count($albumsArray['data']))
+                                            </div>
+                                            @endif
 
 
+                                    @endfor
 
-                                {{$albums -> links()}}
+                                    {{$albums -> links()}}
+                                @else
+
+                                    <h1>OH FUCK</h1>
+
+                                @endif
                             </div>
                         </div>
                     </div>

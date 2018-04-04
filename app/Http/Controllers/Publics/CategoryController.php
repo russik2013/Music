@@ -63,34 +63,43 @@ class CategoryController extends Controller
 
         $categories = Category::with($levels) -> where('id','=',$id)->first();
 
-        $categoriesIds = [];
-        $categoriesIds[] = $categories -> id;
+        if($categories) {
 
-        foreach ($categories -> child as $category){
+            $categoriesIds = [];
+            $categoriesIds[] = $categories->id;
 
-            $categoriesIds[] = $category -> id;
+            foreach ($categories->child as $category) {
 
-            if($category -> child -> count() > 0){
+                $categoriesIds[] = $category->id;
 
-                foreach ($category -> child as $item){
+                if ($category->child->count() > 0) {
 
-                    $categoriesIds[] = $item -> id;
+                    foreach ($category->child as $item) {
+
+                        $categoriesIds[] = $item->id;
+
+                    }
 
                 }
 
             }
 
+            $CategoryAlbum = CategoryAlbum::whereIn('category_id', $categoriesIds)->distinct()->pluck('album_id')->toArray();
+
+            $albumsArray = Album::whereIn('id', $CategoryAlbum)->paginate(16)->toArray();
+
+            $albums = Album::whereIn('id', $CategoryAlbum)->paginate(16);
+
+            $name = $categories->name;
+
+            return view('result', compact('albums', 'name', 'albumsArray'));
+
+        }else{
+
+            $error = true;
+
+            return view('result', compact('error'));
         }
-
-        $CategoryAlbum = CategoryAlbum::whereIn('category_id', $categoriesIds) -> distinct() ->pluck('album_id') -> toArray();
-
-        $albumsArray = Album::whereIn('id', $CategoryAlbum) -> paginate(16)->toArray();
-
-        $albums = Album::whereIn('id', $CategoryAlbum) -> paginate(16);
-
-        $name = $categories -> name;
-
-        return view('result', compact('albums', 'name', 'albumsArray'));
 
     }
 }

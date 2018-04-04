@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>MiCore Development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link href="{{url('css/app-ac34d3ec53(test).css')}}" rel="stylesheet">
+    <link href="{{url('css/app-740f31b8f0.css')}}" rel="stylesheet">
     <link href="{{url('css/vendor-e604b36469(test).css')}}" rel="stylesheet">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -40,7 +40,7 @@
         <div class="container-fluid">
             <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
                 <div class="logo">
-                    <a href="/"><img src="app/img/logo.png"></a>
+                    <a href="{{url('/')}}"><img src="{{url('/images/logo.png')}}"></a>
                 </div>
             </div>
             <div class="navbar-header">
@@ -81,17 +81,18 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="app/js/slick.js"></script>
-<script src="app/js/jquery-ui.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{url('js/slick.js')}}"></script>
+<script src="{{url('js/main.js')}}"></script>
+<script src="{{url('js/jquery-ui.js')}}"></script>
+<script src=https://code.jquery.com/ui/1.12.1/jquery-ui.js></script>
+<script src="{{url('js/vendor-b59658fe81.js')}}"></script>
+<script src="{{url('js/app-8997dbc717.js')}}"></script>
 
-<script src="{{url('js/app-414f4a99db.js')}}"></script>
-<script src="{{url('js/vendor-f17729a97e.js')}}"></script>
-
+</html>
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->
 <!-- run `gulp inject` to automatically populate bower script dependencies -->

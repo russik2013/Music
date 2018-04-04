@@ -2,7 +2,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
             @foreach($types as $type)
-                <li><a href="#">{{$type -> name}}</a></li>
+                <li><a href="{{url('type/'.$type -> id)}}">{{$type -> name}}</a></li>
             @endforeach
             <li><a href="{{url('contact')}}">CONTACT</a></li>
         </ul>

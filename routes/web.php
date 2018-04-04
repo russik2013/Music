@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/test', 'TestController@index');
 
@@ -25,12 +25,13 @@ Route::get('curl_test', 'ParserController@index');
 
 Route::get('contact', 'Publics\ContactController@index');
 
-Route::get('index', 'Publics\HomeController@index');
+Route::get('/', 'Publics\HomeController@index');
 
 
 Route::get('music/{id}', 'Publics\AlbumController@one');
 
 Route::get('category/{id}', 'Publics\CategoryController@show');
+Route::get('type/{id}', 'Publics\TypeController@show');
 
 Route::get('one', function (){
 

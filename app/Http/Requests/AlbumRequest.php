@@ -31,7 +31,7 @@ class AlbumRequest extends FormRequest
             'tracklist' => 'sometimes|string|min:3',
             'description' => 'sometimes|string|min:3',
             'label' => 'sometimes|string|min:3',
-            'genre' => 'sometimes|string|min:3',
+            //'genre' => 'sometimes|string|min:3',
             'quality' => 'sometimes|string|min:3',
             'total_time' => 'sometimes|string|min:3',
             'total_size' => 'sometimes|string|min:3',

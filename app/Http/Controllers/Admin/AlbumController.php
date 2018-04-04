@@ -136,6 +136,14 @@ class AlbumController extends Controller
 
         if($album){
 
+            if($album -> categories)
+
+                $album -> categories() -> delete();
+
+            if($album -> types)
+
+                $album -> types() -> delete();
+
             $album -> delete();
 
             return response()->json(['status' => 'success','message' => "", 'body' => null], 200);

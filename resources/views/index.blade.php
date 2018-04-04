@@ -2,24 +2,18 @@
 @section('index')
     <div class="content">
         <div class="homepage_slider">
-            <div class="slide_wrapper">
-                <h5 class="slide_title">
-                    Rowland Evans - Phlacky Kid
-                </h5>
-                <a href="#" class="button">Read more</a>
-            </div>
-            <div class="slide_wrapper">
-                <h5 class="slide_title">
-                    Rowland Evans - Phlacky Kid
-                </h5>
-                <a href="#" class="button">Read more</a>
-            </div>
-            <div class="slide_wrapper">
-                <h5 class="slide_title">
-                    Rowland Evans - Phlacky Kid
-                </h5>
-                <a href="#" class="button">Read more</a>
-            </div>
+
+            @foreach($sliders as $slider)
+
+                <div class="slide_wrapper">
+                    <h5 class="slide_title">
+                        {{$slider -> artist}} - {{$slider -> title}}
+                    </h5>
+                    <a href="{{url('music/'.$slider -> id)}}" class="button">Read more</a>
+                </div>
+
+                @endforeach
+
         </div>
     </div>
     <div class="body">
@@ -47,7 +41,7 @@
                                 @foreach($musics as $music)
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <div class="album_wrapper">
-                                            <a href="#"><img src="app/img/logo-album-1.png"></a>
+                                            <a href="#"><img src="{{url('images/logo-album-1.png')}}"></a>
                                             <h2 class="album_title">{{$music -> title}}</h2>
                                             <h3 class="description">{{$music -> artist}}</h3>
                                         </div>
@@ -74,7 +68,7 @@
 
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                             <div class="album_wrapper">
-                                                <a href="#"><img src="app/img/logo-album-1.png"></a>
+                                                <a href="#"><img src="{{url('images/logo-album-1.png')}}"></a>
                                                 <h2 class="album_title"> {{$albumsArray['data'][$i]['title']}}</h2>
                                                 <h3 class="description">{{$albumsArray['data'][$i]['artist']}}</h3>
                                             </div>
